@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoustiKO</title>
+  <link rel="icon" href="img/moustique.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="wrap">
+    <header id="hud">
+      <div class="side mos">
+        <img class="avatar" src="img/moustique.svg" alt="">
+        <div class="info">
+          <div class="row"><strong>J1 · Moustique</strong><span id="hearts" class="hearts"></span></div>
+          <div class="row">
+            <span class="bar blood" title="Sang"><span id="bloodBar"></span></span>
+            <span class="eggs" title="Œufs"><img src="img/oeuf.svg" alt="œufs"> × <b id="eggs">2</b></span>
+            <span id="mosStatus" class="status"></span>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <div id="roomName">MoustiKO</div>
+        <div id="score" title="Manches gagnées">🦟 0 : 0 ✋</div>
+      </div>
+      <div class="side hum">
+        <div class="info">
+          <div class="row"><strong>J2 · Humain</strong></div>
+          <div class="row">
+            <span id="humStatus" class="status"></span>
+            <span class="bar cd" title="Recharge"><span id="cdBar"></span></span>
+          </div>
+        </div>
+        <img class="avatar" src="img/mains-ouvertes.svg" alt="">
+      </div>
+    </header>
+
+    <main id="stage">
+      <canvas id="game"></canvas>
+
+      <section id="menu" class="overlay">
+        <h1>Mousti<span>KO</span></h1>
+        <p class="subtitle">Duel à 2 joueurs sur le même PC : le moustique tigre contre l'humain.</p>
+        <div class="cards">
+          <div class="card">
+            <img src="img/moustique.svg" alt="">
+            <h3>Joueur 1 — Moustique tigre</h3>
+            <ul>
+              <li><kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd> voler partout, même au-dessus des meubles</li>
+              <li><kbd>Espace</kbd> maintenu sur l'humain : <b>piquer</b> (attention, tu es vulnérable !)</li>
+              <li><kbd>Espace</kbd> maintenu sur le point d'eau 💧 : <b>pondre</b> → +1 ❤ et +1 œuf</li>
+              <li>Coins sombres : invisible et intouchable… mais impossible d'y piquer</li>
+              <li>🏆 <b>5 cœurs</b> = pièce gagnée</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="img/mains-ouvertes.svg" alt="">
+            <h3>Joueur 2 — Humain</h3>
+            <ul>
+              <li>🖱️ L'humain se balade tout seul, mais il est <b>attiré par la souris</b></li>
+              <li>Ses mains ne vont que dans le cercle autour de lui</li>
+              <li><b>Clic</b> : CLAP ! Un coup raté = recharge plus longue</li>
+              <li>Le moustique renaît au point d'eau tant qu'il a des œufs</li>
+              <li>🏆 Écraser le moustique quand il n'a <b>plus d'œufs</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="btns"><button class="primary" data-room="0">Jouer ▶</button></div>
+        <div id="roomChoice" class="rooms"></div>
+        <p class="hint"><kbd>P</kbd> pause · <kbd>M</kbd> couper le son</p>
+      </section>
+
+      <section id="overlay" class="overlay hidden"></section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/rooms.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
